@@ -1,0 +1,27 @@
+DOCKER_USERNAME          hapaliwa     [I have already added this into your secret]
+DOCKER_PASSWORD          [You need to add this to the secret in github]
+AWS_ACCESS_KEY_ID        AKIARVVEBSPLRGVXWGFD   [I have already added this into your secret]
+AWS_SECRET_ACCESS_KEY    u9qmbqt4140tPXS9eLZW7ODrWP8X1HvRADxB+a12  [I have already added this into your secret]
+--------------------------------------------------------------------------------------------
+kubectl create deploy mysql --image=mysql:8.0 --namespace=student-name  --dry-run=client -o yaml
+
+You can directly generate the secret in imperative way:
+
+kubectl create secret generic mysql-pass --namespace=[student-name] --from-literal=spring.datasource.password=password --from-literal=password=password --dry-run=client -o yaml
+
+
+404  k get po
+  405  k logs flyway-job-g5c9p
+  406  k describe flyway-job-g5c9p
+  407  k describe po flyway-job-g5c9p
+  408  k describe job flyway-job-g5c9p
+  409  k describe job flyway-job
+  410  k describe deploy mysql
+  411  k get deploy mysql -w
+
+
+
+kubectl create configmap flyway-configmap --namespace=beta  --dry-run=client -o yaml
+kubectl create configmap flyway-configmap --from-literal=spring.datasource.username=root --from-file=database/migrations/V1__inital_schema.sql --namespace=beta  --dry-run=client -o yaml > deployment/flyway-configmap.yaml
+
+curl -i -XPUT -H"Content-Type: application/json" localhost:8080/pages/2 -d"{\"businessName\": \"Uber Technologies\", \"address\": \"SanFrancisco, CA, USA\", \"categoryId\": 123, \"contactNumber\": \"0045987869\"}" 

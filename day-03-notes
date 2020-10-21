@@ -1,0 +1,15 @@
+docker build -t hapaliwa/pages:distributed .
+docker push hapaliwa/pages:distributed
+
+docker build -t hapaliwa/category:distributed .
+docker push hapaliwa/category:distributed
+
+
+-------------------------------------------
+sudo chmod 666 /var/run/docker.sock
+
+you can log out after you have done. 
+Log
+sure
+10 MINs Take your time till the end of expiration. no hurries :)
+

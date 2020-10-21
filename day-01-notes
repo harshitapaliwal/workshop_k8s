@@ -1,0 +1,67 @@
+github username:harshitapaliwal
+docker userame: hapaliwa
+
+
+-------------------------------
+pods:
+ go into pod :
+	kubectl exe -it  name of pod name --sh
+	kubectl exe -it  name of pod name --sh
+
+start minikube:
+
+Start minikube locally minikube start --driver=virtualbox
+
+Verify the kubectl context kubectl config get-contexts is set to minikube. If not, 
+set it to minikube kubectl config use-context minikube
+
+kubernetes deployment:
+Create kubernetes objects
+
+kubectl apply -f deployment/pages-namespace.yaml
+kubectl apply -f deployment/pages-service.yaml
+kubectl apply -f deployment/pages-deployment.yaml
+
+deleting kubectl delte -f deploy
+
+Verify the created objects
+
+kubectl get deployment pages --namespace [student-name]
+kubectl get service pages --namespace [student-name]
+
+
+Set up [student-name] namespace to point to the current context
+
+kubectl config set-context --current --namespace=[student-name]
+
+
+to get pods - kubectl get pod
+
+Access the pages application by port-forwarding using kubectl, enabling the application can be served via localhost on port 8080
+
+kubectl port-forward svc/pages 8080:8080
+
+curl localhost:8080
+-------------------------------------------
+docker build -t hapaliwa/pages:1.0 .
+docker push hapaliwa/pages:1.0
+docker run -p 8080:8080 hapaliwa/pages:1.0
+
+-------------------------------------------
+sudo chmod 666 /var/run/docker.sock
+--------------------------------------------------------
+Create the gradle ecosystem by using the following commands
+
+gradle wrapper --gradle-version 6.4.1 --distribution-type all
+
+
+Build & test the application
+
+./gradlew clean build
+
+Run the application
+
+./gradlew bootRun
+--------------------------------------------------------
+
+
